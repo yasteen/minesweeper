@@ -37,7 +37,6 @@ export const Board = () => {
         const onDisconnect = () => setIsConnected(false);
         const updateBoard = (b: BoardType) => {
             setBoard(b);
-            console.log("new board state", b);
         };
         const updateHoverState = (state: {[id: string]: number}) => {
             const newHoverState: {[index: number]: string[]} = {};
