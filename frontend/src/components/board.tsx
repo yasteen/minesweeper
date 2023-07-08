@@ -33,7 +33,10 @@ export const Board = () => {
     const reset = () => socket.emit("reset");
 
     useEffect(() => {
-        const onConnect = () => setIsConnected(true);
+        const onConnect = () => {
+            console.log("connected as", socket.id);
+            setIsConnected(true)
+        };
         const onDisconnect = () => setIsConnected(false);
         const updateBoard = (b: BoardType) => {
             setBoard(b);
@@ -54,7 +57,6 @@ export const Board = () => {
         socket.on("receiveBoard", updateBoard);
         socket.on("hoverState", updateHoverState);
 
-        console.log("connected as", socket.id);
 
         return () => {
             socket.off("connect", onConnect);
