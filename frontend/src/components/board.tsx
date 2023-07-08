@@ -38,9 +38,7 @@ export const Board = () => {
             setIsConnected(true)
         };
         const onDisconnect = () => setIsConnected(false);
-        const updateBoard = (b: BoardType) => {
-            setBoard(b);
-        };
+        const updateBoard = (b: BoardType) => setBoard(b);
         const updateHoverState = (state: {[id: string]: number}) => {
             const newHoverState: {[index: number]: string[]} = {};
             for (const id in state) {
@@ -85,7 +83,7 @@ export const Board = () => {
                 ) : (
                     board.s.map((state, i) => {
                         return (
-                            <div key={`square${i}`}>
+                            <div className={styles.square_wrapper} key={`square${i}`}>
                                 {(hoverState[i] ?? []).map((colour) =>
                                     <div
                                         key={colour}

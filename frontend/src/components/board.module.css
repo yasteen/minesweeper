@@ -8,6 +8,7 @@
     background-color: var(--board-colour);
     padding-bottom: var(--board-padding);
     user-select: none;
+    margin: auto;
 }
 
 .board_top {
@@ -35,11 +36,15 @@
     border-style: solid;
 }
 
+.square_wrapper {
+    position: relative;
+}
 .hover_cursor {
     width: var(--box-size);
     height: var(--box-size);
     opacity: 0.5;
-    position: fixed;
+    position: absolute;
+    pointer-events: none;
 }
 
 .square_covered, .square_uncovered {

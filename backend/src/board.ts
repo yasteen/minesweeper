@@ -38,10 +38,9 @@ const initBoard = (name: string, firstClickedIndex: number) => {
 
     // Create mines
     const s = new Set<number>();
-    s.add(firstClickedIndex);
     while (s.size < 99) {
         const r = Math.floor(Math.random() * (16 * 30));
-        if (s.has(r)) continue;
+        if (s.has(r) || r === firstClickedIndex) continue;
         s.add(r);
         board.v[r] = "M";
     }
